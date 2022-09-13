@@ -2,6 +2,7 @@
 using ECommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 
 namespace ECommerceWeb.Areas.Customer.Controllers
 {
@@ -23,6 +24,15 @@ namespace ECommerceWeb.Areas.Customer.Controllers
 
             return View(productList);
         }
+        public IActionResult Details(int id)
+        {
+            ShoppingCart cartObj = new()
+            {
+                Count=1,
+                Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,CoverType")
+            };
+            return View(cartObj);
+    }
 
         public IActionResult Privacy()
         {

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace BulkyBookWeb.Controllers;
+namespace ECommerce.Controllers;
 [Area("Admin")]
 public class ProductController : Controller
 {
