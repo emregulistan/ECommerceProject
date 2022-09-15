@@ -1,10 +1,15 @@
 ﻿using ECommerce.DataAccess.Repository.IRepository;
 using ECommerce.Models;
+using ECommerce.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace ECommerceWeb.Areas.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
+
     public class CoverTypeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

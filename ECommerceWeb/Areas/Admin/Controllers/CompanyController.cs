@@ -2,17 +2,22 @@
 using ECommerce.DataAccess.Repository.IRepository;
 using ECommerce.Models;
 using ECommerce.Models.ViewModels;
+using ECommerce.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 
 namespace ECommerce.Controllers;
 [Area("Admin")]
+[Authorize(Roles = SD.Role_Admin)]
+
 public class CompanyController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
